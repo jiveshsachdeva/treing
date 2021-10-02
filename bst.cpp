@@ -18,6 +18,9 @@ public:
  
     // Inorder traversal.
     void Inorder(BST*);
+    
+    // Searching function
+    BST* searchInBST(BST* root, int key);
 };
  
 // Default Constructor definition.
@@ -77,6 +80,22 @@ void BST ::Inorder(BST* root)
     cout << root->data << endl;
     Inorder(root->right);
 }
+
+BST* BST ::searchInBST(BST* root, int key){
+
+    if(root == NULL)
+        return NULL;
+
+    if(root->data == key)
+        return root;
+
+    // data > key
+    if(root->data > key)
+        return searchInBST(root->left, key);
+
+    // data < key
+    return searchInBST(root->right, key);
+}
  
 // Driver code
 int main()
@@ -91,5 +110,12 @@ int main()
     b.Insert(root, 80);
  
     b.Inorder(root);
+ 
+    if(b.searchInBST(root, 60) == NULL){
+        cout<<"Does not exists"<<endl;
+    } else{
+        cout<<"exists"<<endl;
+    }
+ 
     return 0;
 }
