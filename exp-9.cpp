@@ -47,8 +47,9 @@ int main()
 	cin>>size;
 	int arr[size];
 	cout<<"Enter elements ->"<<endl;
-	for(int i=0;i<size;i++)
+	for(int i=0;i<size;i++){
 	   cin>>arr[i];
+	}
 	quicksort(arr,0,size-1);
 	cout<<"Sorted Array : ";
 	print(arr,size);
